@@ -30,7 +30,7 @@ public class AddCarController
 	}
 	
 	@PostMapping(Constants.EndPoints.ADD_CAR)
-    public String addCar(@ModelAttribute(Constants.Attributes.CAR) Car car, Model model,
+	public String addCar(@ModelAttribute(Constants.Attributes.CAR) Car car, Model model,
     		HttpSession session, RedirectAttributes redirectAttributes) 
 	{
 		String registrationNumber = car.getRegistrationNumber().toUpperCase();

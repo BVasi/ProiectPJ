@@ -29,7 +29,7 @@ public class HomeController
 			return Constants.Redirects.LOGIN;
 		}
 		populateSortingCriteria(model);
-        boolean isOperator = authenticatedUser != null && authenticatedUser.isOperator();
+        boolean isOperator = authenticatedUser.isOperator();
         model.addAttribute(Constants.Attributes.IS_OPERATOR, isOperator);
         model.addAttribute("username", authenticatedUser.getUsername());
         populateModelWithCars(model, brand, modelParam, cylindricalCapacity);
