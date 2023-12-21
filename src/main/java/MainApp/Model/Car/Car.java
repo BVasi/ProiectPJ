@@ -18,7 +18,10 @@ import MainApp.Constants.Constants;
 @Table(name = Constants.Tables.CARS)
 public class Car 
 {
-	public Car() {}
+	public Car()
+	{
+		
+	}
 	
 	public String getRegistrationNumber()
 	{
