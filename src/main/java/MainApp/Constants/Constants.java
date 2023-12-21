@@ -32,6 +32,7 @@ public final class Constants
 		public final static String USER = "user";
 		public final static String LOGGED_USER = "authenticatedUser";
 		public final static String USERS = "users";
+		public final static String USERNAME = "username";
 		public final static String CAR = "car";
 		public final static String CARS = "cars";
 		public final static String REGISTRATION_EXISTS = "registrationExists";

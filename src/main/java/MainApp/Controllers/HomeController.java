@@ -31,7 +31,7 @@ public class HomeController
 		populateSortingCriteria(model);
         boolean isOperator = authenticatedUser.isOperator();
         model.addAttribute(Constants.Attributes.IS_OPERATOR, isOperator);
-        model.addAttribute("username", authenticatedUser.getUsername());
+        model.addAttribute(Constants.Attributes.USERNAME, authenticatedUser.getUsername());
         populateModelWithCars(model, brand, modelParam, cylindricalCapacity);
 		return Constants.EndPoints.HOME;
 	}
