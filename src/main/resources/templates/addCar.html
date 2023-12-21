@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/addCar.css}">
+    <title>Add Car</title>
+</head>
+<body>
+    <form th:action="@{/addCar}" method="post">
+        <h2>Add Car</h2>
+        <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Registration Number" required pattern="([A-Za-z]{2}\d{2}[A-Za-z]{3})|([A-Za-z]\d{3}[A-Za-z]{3})" title="Please enter a valid registration number">
+        <input type="text" id="brand" name="brand" placeholder="Brand" required>
+        <input type="text" id="model" name="model" placeholder="Model" required>
+        <input type="number" id="fabricationYear" name="fabricationYear" placeholder="Fabrication Year" min="0" required>
+        <input type="number" id="cylindricalCapacity" name="cylindricalCapacity" placeholder="Cylindrical Capacity" min="0" required>
+        <input type="number" id="power" name="power" placeholder="Power" min="0" required>
+        <input type="number" id="torque" name="torque" placeholder="Torque" min="0" required>
+        <input type="number" id="trunkVolume" name="trunkVolume" placeholder="Trunk Volume" min="0" required>
+        <input type="number" id="price" name="price" step="0.01" placeholder="Price" min="0" required>
+        <select id="color" name="color" required>
+            <option value="" disabled selected hidden>Select Color</option>
+            <option value="BLACK">Black</option>
+            <option value="WHITE">White</option>
+            <option value="BLUE">Blue</option>
+            <option value="RED">Red</option>
+            <option value="GREEN">Green</option>
+            <option value="YELLOW">Yellow</option>
+            <option value="PURPLE">Purple</option>
+            <option value="ORANGE">Orange</option>
+            <option value="PINK">Pink</option>
+            <option value="BROWN">Brown</option>
+            <option value="GRAY">Gray</option>
+        </select>
+        <select id="fuelType" name="fuelType" required>
+	        <option value="" disabled selected hidden>Fuel Type</option>
+	        <option value="GASOLINE">Gasoline</option>
+	        <option value="DIESEL">Diesel</option>
+        </select>
+        <button type="submit">Add Car</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change User Role</title>
+    <link rel="stylesheet" th:href="@{/css/changeRole.css}">
+    <script>
+        function updateCheckbox()
+        {
+            var selectedUser = document.getElementById("userDropdown");
+            var checkbox = document.getElementById("isOperator");
+            var isOperator = selectedUser.options[selectedUser.selectedIndex].getAttribute("data-operator") === "true";
+
+            checkbox.checked = isOperator;
+        }
+    </script>
+</head>
+<body>
+    <h2>Change User Role</h2>
+    <form th:action="@{/changeRole}" method="post">
+        <label for="userDropdown">Select User:</label>
+        <select id="userDropdown" name="selectedUser" onchange="updateCheckbox()">
+            <option value="" disabled>Select User</option>
+            <option th:each="user : ${users}" th:value="${user.username}" th:text="${user.username}" th:attr="data-operator=${user.isOperator()}"></option>
+        </select>
+        <div>
+            <input type="checkbox" id="isOperator" name="isOperator" th:checked="${users[0].isOperator()}">
+            <label for="isOperator">Is Operator</label>
+        </div>
+        <button type="submit">Change Role</button>
+        <a th:href="@{/home}">
+            <button>Back To Home</button>
+        </a>
+    </form>
+</body>
+</html>

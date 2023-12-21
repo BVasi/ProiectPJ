@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <script th:if="${usernameTaken}">
+	    alert('Username already taken!');
+	</script>
+	<script th:if="${passwordMissmatch}">
+	    alert('Passwords do not match!');
+	</script>
+</head>
+<body>
+    <form id="registrationForm" th:action="@{/register}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" th:field="${user.username}" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" th:field="${user.password}" required>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <button type="submit">Register</button>
+
+        <button type="button" onclick="window.location.href='/login'" class="switch-form">Go to Login</button>
+    </form>
+</body>
+</html>

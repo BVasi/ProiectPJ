@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Car</title>
+    <link rel="stylesheet" th:href="@{/css/updateCar.css}">
+</head>
+<body>
+    <form th:action="@{/updateCar}" method="post">
+        <h2>Update Car</h2>
+        <input type="text" id="registrationNumber" name="registrationNumber" readonly th:value="${car.registrationNumber}">
+        <input type="text" id="brand" name="brand" placeholder="Brand" th:value="${car.brand}">
+        <input type="text" id="model" name="model" placeholder="Model" th:value="${car.model}">
+        <input type="number" id="fabricationYear" name="fabricationYear" placeholder="Fabrication Year" th:value="${car.fabricationYear}">
+        <input type="number" id="cylindricalCapacity" name="cylindricalCapacity" placeholder="Cylindrical Capacity" th:value="${car.cylindricalCapacity}">
+        <input type="number" id="power" name="power" placeholder="Power" th:value="${car.power}">
+        <input type="number" id="torque" name="torque" placeholder="Torque" th:value="${car.torque}">
+        <input type="number" id="trunkVolume" name="trunkVolume" placeholder="Trunk Volume" th:value="${car.trunkVolume}">
+        <input type="number" id="price" name="price" step="0.01" placeholder="Price" th:value="${car.price}">
+        <select id="color" name="color">
+		    <option th:each="carColor : ${T(MainApp.Model.Car.Color).values()}"
+		            th:value="${carColor}" th:text="${carColor}"
+		            th:selected="${car.color == carColor}"></option>
+		</select>
+        <select id="fuelType" name="fuelType">
+		    <option th:each="carFuelType : ${T(MainApp.Model.Car.FuelType).values()}"
+		            th:value="${carFuelType}" th:text="${carFuelType}"
+		            th:selected="${car.fuelType == carFuelType}"></option>
+		</select>
+        <button type="submit">Update Car</button>
+    </form>
+</body>
+</html>
